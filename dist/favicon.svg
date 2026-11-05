@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="100" height="100">
+  <defs>
+    <linearGradient id="cyber-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#00f2fe" />
+      <stop offset="100%" stop-color="#4facfe" />
+    </linearGradient>
+  </defs>
+  <rect width="100" height="100" rx="24" fill="#070d1e" />
+  <rect width="94" height="94" x="3" y="3" rx="21" fill="none" stroke="url(#cyber-grad)" stroke-width="2.5" opacity="0.8" />
+  <text x="50" y="64" font-family="'Plus Jakarta Sans', sans-serif" font-size="44" font-weight="800" fill="url(#cyber-grad)" text-anchor="middle">K</text>
+</svg>
+
