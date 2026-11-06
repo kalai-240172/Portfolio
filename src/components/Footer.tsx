@@ -1,5 +1,5 @@
 import React from 'react';
-import { ArrowUp, Github, Linkedin } from 'lucide-react';
+import { ArrowUp, Github, Linkedin, Mail } from 'lucide-react';
 import { PORTFOLIO_DATA } from '../data/portfolioData';
 
 const LeetCodeIcon: React.FC<{ className?: string }> = ({ className = "w-4 h-4" }) => (
@@ -39,11 +39,27 @@ export const Footer: React.FC = () => {
               <p className="text-xs text-slate-400 font-mono">
                 {personal.title} • {personal.college}
               </p>
+              <a
+                href={`mailto:${socials.email}`}
+                className="text-xs text-cyan-400 hover:text-white font-mono transition-colors block mt-1"
+                title="Email Kalaivanan S"
+              >
+                {socials.email}
+              </a>
             </div>
           </div>
 
           {/* Social Icons with exact links */}
           <div className="flex items-center gap-3">
+            <a
+              href={`mailto:${socials.email}`}
+              className="p-2.5 rounded-xl bg-navy-900 border border-slate-700 text-slate-300 hover:text-cyan-400 hover:border-cyan-400 transition-colors"
+              aria-label="Send Email"
+              title={socials.email}
+            >
+              <Mail className="w-4 h-4" />
+            </a>
+
             <a
               href={socials.linkedin}
               target="_blank"

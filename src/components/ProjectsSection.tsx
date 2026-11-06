@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Layers, ChevronRight, X, CheckCircle2, Clock } from 'lucide-react';
+import { Layers, ChevronRight, X, CheckCircle2, Clock, Github, ExternalLink } from 'lucide-react';
 import { PORTFOLIO_DATA, ProjectDetail } from '../data/portfolioData';
 
 export const ProjectsSection: React.FC = () => {
@@ -84,7 +84,7 @@ export const ProjectsSection: React.FC = () => {
                 </div>
 
                 {/* Footer Action */}
-                <div className="pt-4 border-t border-slate-800 flex items-center justify-between gap-3">
+                <div className="pt-4 border-t border-slate-800 flex items-center justify-between gap-3 flex-wrap">
                   <button
                     onClick={() => setSelectedProject(project)}
                     className="inline-flex items-center gap-1.5 text-xs font-mono font-semibold text-cyan-400 hover:text-cyan-300 px-3.5 py-2 rounded-xl bg-cyan-950/40 border border-cyan-500/30 hover:border-cyan-400 transition-all cursor-pointer"
@@ -93,9 +93,23 @@ export const ProjectsSection: React.FC = () => {
                     <ChevronRight className="w-3.5 h-3.5" />
                   </button>
 
-                  <div className="text-[11px] font-mono text-slate-500">
-                    {project.isPlaceholder ? 'Placeholder' : 'Main Project'}
-                  </div>
+                  {/* GitHub button if project has a repo */}
+                  {project.githubUrl ? (
+                    <a
+                      href={project.githubUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-1.5 text-xs font-mono font-semibold px-3.5 py-2 rounded-xl bg-navy-900 border border-slate-700 text-slate-200 hover:text-white hover:border-cyan-400 hover:shadow-neon-cyan/20 transition-all"
+                    >
+                      <Github className="w-3.5 h-3.5 text-cyan-400" />
+                      <span>View on GitHub</span>
+                      <ExternalLink className="w-3 h-3 text-slate-400" />
+                    </a>
+                  ) : (
+                    <div className="text-[11px] font-mono text-slate-500">
+                      {project.isPlaceholder ? 'Placeholder' : 'Main Project'}
+                    </div>
+                  )}
                 </div>
 
               </div>
@@ -196,9 +210,24 @@ export const ProjectsSection: React.FC = () => {
                 </div>
               </div>
 
-              <div className="pt-4 border-t border-slate-800 text-xs font-mono text-slate-500">
-                * Links and live demo buttons will be activated once this repository is published.
-              </div>
+              {/* Modal Footer GitHub Action */}
+              {selectedProject.githubUrl && (
+                <div className="pt-4 border-t border-slate-800 flex items-center justify-between gap-3">
+                  <a
+                    href={selectedProject.githubUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-gradient-to-r from-cyan-400 to-electric-blue text-navy-950 font-bold text-xs font-mono shadow-neon-cyan hover:shadow-cyan-400/50 hover:scale-[1.02] active:scale-[0.98] transition-all cursor-pointer"
+                  >
+                    <Github className="w-4 h-4" />
+                    <span>View on GitHub</span>
+                    <ExternalLink className="w-3.5 h-3.5" />
+                  </a>
+                  <span className="text-[11px] font-mono text-slate-400">
+                    Opens in new browser tab
+                  </span>
+                </div>
+              )}
 
             </div>
 

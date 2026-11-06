@@ -44,28 +44,37 @@ export const ContactSection: React.FC = () => {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
           
           {/* Email Card */}
-          <div className="glass-panel p-6 sm:p-7 rounded-3xl border border-white/10 hover:border-cyan-400/60 hover:shadow-neon-cyan/20 transition-all duration-300 flex flex-col justify-between group">
+          <div className="glass-panel p-6 sm:p-7 rounded-3xl border border-cyan-400/40 bg-navy-900/85 shadow-neon-cyan/20 transition-all duration-300 flex flex-col justify-between group">
             <div>
-              <div className="w-12 h-12 rounded-2xl bg-cyan-950/80 border border-cyan-500/30 flex items-center justify-center text-cyan-400 mb-4 group-hover:scale-105 transition-transform">
+              <div className="w-12 h-12 rounded-2xl bg-cyan-950 border border-cyan-400/50 flex items-center justify-center text-cyan-300 mb-4 group-hover:scale-105 shadow-neon-cyan transition-transform">
                 <Mail className="w-6 h-6" />
               </div>
-              <h3 className="text-lg font-bold text-white mb-1">Email</h3>
-              <p className="text-xs font-mono text-cyan-400 mb-3 break-all">{socials.email}</p>
-              <p className="text-xs text-slate-400 leading-relaxed font-light">
-                Direct email for software engineering discussions, questions, and collaborations.
+              <h3 className="text-lg font-bold text-white mb-1">Email Address</h3>
+              
+              {/* Clearly displayed & clickable mailto */}
+              <a
+                href={`mailto:${socials.email}`}
+                className="text-sm font-mono text-cyan-300 hover:text-white hover:underline transition-colors block mb-3 break-all font-semibold"
+                title="Send email via mailto:"
+              >
+                {socials.email}
+              </a>
+
+              <p className="text-xs text-slate-300 leading-relaxed font-light">
+                Direct email for discussions, collaboration, and learning inquiries.
               </p>
             </div>
             
-            <button
-              onClick={handleLaunchEmailClient}
-              className="mt-6 pt-4 border-t border-slate-800 w-full inline-flex items-center justify-between text-xs font-mono text-cyan-300 hover:text-white transition-colors cursor-pointer"
-            >
-              <span className="flex items-center gap-1.5">
-                <Send className="w-3.5 h-3.5 text-cyan-400" />
-                <span>Open Mail App</span>
-              </span>
-              <span>→</span>
-            </button>
+            {/* Button labeled "Send Me an Email" */}
+            <div className="mt-6 pt-4 border-t border-slate-800">
+              <button
+                onClick={handleLaunchEmailClient}
+                className="w-full inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl bg-gradient-to-r from-cyan-400 to-electric-blue text-navy-950 font-bold text-xs font-mono shadow-neon-cyan hover:shadow-cyan-400/50 hover:scale-[1.02] active:scale-[0.98] transition-all cursor-pointer"
+              >
+                <Send className="w-3.5 h-3.5" />
+                <span>Send Me an Email</span>
+              </button>
+            </div>
           </div>
 
           {/* LinkedIn Card */}
@@ -132,7 +141,7 @@ export const ContactSection: React.FC = () => {
             </div>
             <div>
               <h4 className="text-sm font-bold text-white">LeetCode Profile</h4>
-              <p className="text-xs text-slate-400 font-mono">u/Kalai240172</p>
+              <p className="text-xs text-slate-400 font-mono">u/Kalai2401</p>
             </div>
           </div>
 
